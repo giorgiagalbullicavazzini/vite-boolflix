@@ -37,7 +37,7 @@ export default {
         <ul v-for="foundMovie in store.foundMovies">
             <li><span>Titolo:</span> {{ foundMovie.title }}</li>
             <li><span>Titolo Originale:</span> {{ foundMovie.original_title }}</li>
-            <li><span>Lingua Originale:</span> {{ foundMovie.original_language }}</li>
+            <li><span>Lingua Originale:</span> <img :src="`../node_modules/language-icons/icons/${foundMovie.original_language}.svg`" alt=""></li>
             <li><span>Voto:</span> {{ foundMovie.vote_average }}</li>
         </ul>
     </div>
