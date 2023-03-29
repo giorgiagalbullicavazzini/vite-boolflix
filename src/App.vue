@@ -9,9 +9,9 @@ export default {
         }
     },
     created() {
-        axios.get(store.config.movie_api, {
+        axios.get(store.config.movieApi, {
             params: {
-                api_key: store.config.api_key,
+                api_key: store.config.apiKey,
                 query: store.config.query
             }
         })
