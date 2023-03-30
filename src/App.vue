@@ -20,6 +20,13 @@ export default {
                 .then((response) => {
                     this.store.foundMovies = response.data.results;
                 })
+        },
+        getFlag(item) {
+            if (item.original_language === 'xx') {
+                return '../src/assets/images/xx.png';
+            } else {
+                return `../node_modules/language-icons/icons/${item.original_language}.svg`;
+            }
         }
     }
 }
@@ -37,7 +44,8 @@ export default {
         <ul v-for="foundMovie in this.store.foundMovies">
             <li><span>Titolo:</span> {{ foundMovie.title }}</li>
             <li><span>Titolo Originale:</span> {{ foundMovie.original_title }}</li>
-            <li><span>Lingua Originale:</span> <img :src="`../node_modules/language-icons/icons/${foundMovie.original_language}.svg`" :alt="foundMovie.original_language"></li>
+            <li><span>Lingua Originale:</span> <img :src="getFlag(foundMovie)" :alt="foundMovie.original_language"
+                    onerror="this.onerror=null;this.src='../src/assets/images/question.png';" /> </li>
             <li><span>Voto:</span> {{ foundMovie.vote_average }}</li>
         </ul>
     </div>
