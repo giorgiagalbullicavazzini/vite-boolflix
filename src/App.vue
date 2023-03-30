@@ -105,6 +105,7 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped>span {
+<style lang="scss" scoped>
+span {
     font-weight: 700;
 }</style>
