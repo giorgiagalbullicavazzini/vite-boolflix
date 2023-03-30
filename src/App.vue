@@ -41,7 +41,7 @@ export default {
         },
         getVote(vote) {
             const starValue = this.store.config.maxVote / this.store.config.maxStarNumber;
-            const finalVote = vote / starValue;
+            const finalVote = Math.ceil(vote / starValue);
             return finalVote;
         }
     }
