@@ -69,6 +69,10 @@ export default {
             <li><span>Lingua Originale:</span> <img :src="getFlag(foundMovie)" :alt="foundMovie.original_language"
                     onerror="this.onerror=null;this.src='../src/assets/images/question.png';" /> </li>
             <li><span>Voto:</span> {{ getVote(foundMovie.vote_average) }}</li>
+            <li></li>
+
+            <!-- <li><font-awesome-icon icon="fa-solid fa-star" /></li>
+                <li><font-awesome-icon icon="fa-regular fa-star" /></li> -->
         </ul>
     </div>
 
