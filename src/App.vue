@@ -17,9 +17,9 @@ export default {
                     query: this.store.searchText
                 }
             })
-            .then((response) => {
-                this.store.foundMovies = response.data.results;
-            });
+                .then((response) => {
+                    this.store.foundMovies = response.data.results;
+                });
 
             axios.get(this.store.config.tvApi, {
                 params: {
@@ -28,9 +28,9 @@ export default {
                     query: this.store.searchText
                 }
             })
-            .then((response) => {
-                this.store.foundSeries = response.data.results;
-            });
+                .then((response) => {
+                    this.store.foundSeries = response.data.results;
+                });
         },
         getFlag(item) {
             if (item.original_language === 'xx') {
@@ -38,6 +38,11 @@ export default {
             } else {
                 return `../node_modules/language-icons/icons/${item.original_language}.svg`;
             }
+        },
+        getVote(vote) {
+            const starValue = this.store.config.maxVote / this.store.config.maxStarNumber;
+            const finalVote = vote / starValue;
+            return finalVote;
         }
     }
 }
@@ -55,14 +60,15 @@ export default {
         <ul v-for="foundMovie in this.store.foundMovies">
             <li>
                 <div>
-                    <img :src="`${this.store.config.imgDb}${foundMovie.poster_path}`" alt="foundMovie.original_title">
+                    <img :src="`${this.store.config.imgDb}${foundMovie.poster_path}`" :alt="foundMovie.original_title"
+                        onerror="this.onerror=null;this.src='../src/assets/images/question.png';" />
                 </div>
             </li>
             <li><span>Titolo:</span> {{ foundMovie.title }}</li>
             <li><span>Titolo Originale:</span> {{ foundMovie.original_title }}</li>
             <li><span>Lingua Originale:</span> <img :src="getFlag(foundMovie)" :alt="foundMovie.original_language"
                     onerror="this.onerror=null;this.src='../src/assets/images/question.png';" /> </li>
-            <li><span>Voto:</span> {{ foundMovie.vote_average }}</li>
+            <li><span>Voto:</span> {{ getVote(foundMovie.vote_average) }}</li>
         </ul>
     </div>
 
@@ -70,14 +76,15 @@ export default {
         <ul v-for="foundTv in this.store.foundSeries">
             <li>
                 <div>
-                    <img :src="`${this.store.config.imgDb}${foundTv.poster_path}`" alt="foundTv.original_title">
+                    <img :src="`${this.store.config.imgDb}${foundTv.poster_path}`" :alt="foundTv.original_title"
+                        onerror="this.onerror=null;this.src='../src/assets/images/question.png';" />
                 </div>
             </li>
             <li><span>Titolo:</span> {{ foundTv.name }}</li>
             <li><span>Titolo Originale:</span> {{ foundTv.original_name }}</li>
             <li><span>Lingua Originale:</span> <img :src="getFlag(foundTv)" :alt="foundTv.original_language"
                     onerror="this.onerror=null;this.src='../src/assets/images/question.png';" /> </li>
-            <li><span>Voto:</span> {{ foundTv.vote_average }}</li>
+            <li><span>Voto:</span> {{ getVote(foundTv.vote_average) }}</li>
         </ul>
     </div>
 </template>
