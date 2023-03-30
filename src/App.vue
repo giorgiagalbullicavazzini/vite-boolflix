@@ -10,15 +10,15 @@ export default {
     },
     methods: {
         searchMovie() {
-            axios.get(store.config.movieApi, {
+            axios.get(this.store.config.movieApi, {
                 params: {
-                    api_key: store.config.apiKey,
-                    query: store.query
+                    api_key: this.store.config.apiKey,
+                    query: this.store.query
                 }
             })
             .then((response) => {
-                store.foundMovies = response.data.results;
-                console.log(store.foundMovies);
+                this.store.foundMovies = response.data.results;
+                console.log(this.store.foundMovies);
             })
         }
     }
@@ -28,13 +28,13 @@ export default {
 <template>
     <div class="container m-5">
         <form @submit.prevent="searchMovie">
-            <input v-model="store.query" type="search" name="search-movie" id="search-movie">
+            <input v-model="this.store.query" type="search" name="search-movie" id="search-movie">
             <button>Search</button>
         </form>
     </div>
 
     <div class="container m-5">
-        <ul v-for="foundMovie in store.foundMovies">
+        <ul v-for="foundMovie in this.store.foundMovies">
             <li><span>Titolo:</span> {{ foundMovie.title }}</li>
             <li><span>Titolo Originale:</span> {{ foundMovie.original_title }}</li>
             <li><span>Lingua Originale:</span> <img :src="`../node_modules/language-icons/icons/${foundMovie.original_language}.svg`" alt=""></li>
