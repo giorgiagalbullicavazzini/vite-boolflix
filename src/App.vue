@@ -13,7 +13,8 @@ export default {
             axios.get(this.store.config.movieApi, {
                 params: {
                     api_key: this.store.config.apiKey,
-                    query: this.store.query
+                    language: this.store.config.defaultLang,
+                    query: this.store.searchText
                 }
             })
             .then((response) => {
@@ -28,7 +29,7 @@ export default {
 <template>
     <div class="container m-5">
         <form @submit.prevent="searchMovie">
-            <input v-model="this.store.query" type="search" name="search-movie" id="search-movie">
+            <input v-model="this.store.searchText" type="search" name="search-movie" id="search-movie">
             <button>Search</button>
         </form>
     </div>
