@@ -9,7 +9,7 @@ export default {
         }
     },
     methods: {
-        searchMovie() {
+        search() {
             axios.get(this.store.config.movieApi, {
                 params: {
                     api_key: this.store.config.apiKey,
@@ -17,9 +17,20 @@ export default {
                     query: this.store.searchText
                 }
             })
-                .then((response) => {
-                    this.store.foundMovies = response.data.results;
-                })
+            .then((response) => {
+                this.store.foundMovies = response.data.results;
+            });
+
+            axios.get(this.store.config.tvApi, {
+                params: {
+                    api_key: this.store.config.apiKey,
+                    language: this.store.config.defaultLang,
+                    query: this.store.searchText
+                }
+            })
+            .then((response) => {
+                this.store.foundSeries = response.data.results;
+            });
         },
         getFlag(item) {
             if (item.original_language === 'xx') {
@@ -34,7 +45,7 @@ export default {
 
 <template>
     <div class="container m-5">
-        <form @submit.prevent="searchMovie">
+        <form @submit.prevent="search">
             <input v-model="this.store.searchText" type="search" name="search-movie" id="search-movie">
             <button>Search</button>
         </form>
@@ -47,6 +58,16 @@ export default {
             <li><span>Lingua Originale:</span> <img :src="getFlag(foundMovie)" :alt="foundMovie.original_language"
                     onerror="this.onerror=null;this.src='../src/assets/images/question.png';" /> </li>
             <li><span>Voto:</span> {{ foundMovie.vote_average }}</li>
+        </ul>
+    </div>
+
+    <div class="container m-5">
+        <ul v-for="foundTv in this.store.foundSeries">
+            <li><span>Titolo:</span> {{ foundTv.name }}</li>
+            <li><span>Titolo Originale:</span> {{ foundTv.original_name }}</li>
+            <li><span>Lingua Originale:</span> <img :src="getFlag(foundTv)" :alt="foundTv.original_language"
+                    onerror="this.onerror=null;this.src='../src/assets/images/question.png';" /> </li>
+            <li><span>Voto:</span> {{ foundTv.vote_average }}</li>
         </ul>
     </div>
 </template>
