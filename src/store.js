@@ -7,5 +7,5 @@ export const store = reactive({
         defaultLang: 'it-IT'
     },
     searchText: '',
-    foundMovies: ''
+    foundMovies: []
 })
