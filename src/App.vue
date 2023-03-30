@@ -42,7 +42,7 @@ export default {
         getVote(vote) {
             const starValue = this.store.config.maxVote / this.store.config.maxStarNumber;
             const finalVote = Math.ceil(vote / starValue);
-            return finalVote;
+            return (finalVote);
         }
     }
 }
@@ -68,11 +68,15 @@ export default {
             <li><span>Titolo Originale:</span> {{ foundMovie.original_title }}</li>
             <li><span>Lingua Originale:</span> <img :src="getFlag(foundMovie)" :alt="foundMovie.original_language"
                     onerror="this.onerror=null;this.src='../src/assets/images/question.png';" /> </li>
-            <li><span>Voto:</span> {{ getVote(foundMovie.vote_average) }}</li>
-            <li></li>
-
-            <!-- <li><font-awesome-icon icon="fa-solid fa-star" /></li>
-                <li><font-awesome-icon icon="fa-regular fa-star" /></li> -->
+            <li>
+                <span>Voto: </span>
+                <span>
+                    <font-awesome-icon v-for="finalVote in getVote(foundMovie.vote_average)" icon="fa-solid fa-star" />
+                    <font-awesome-icon
+                        v-for="emptyStars in (this.store.config.maxStarNumber - getVote(foundMovie.vote_average))"
+                        icon="fa-regular fa-star" />
+                </span>
+            </li>
         </ul>
     </div>
 
@@ -88,13 +92,19 @@ export default {
             <li><span>Titolo Originale:</span> {{ foundTv.original_name }}</li>
             <li><span>Lingua Originale:</span> <img :src="getFlag(foundTv)" :alt="foundTv.original_language"
                     onerror="this.onerror=null;this.src='../src/assets/images/question.png';" /> </li>
-            <li><span>Voto:</span> {{ getVote(foundTv.vote_average) }}</li>
+            <li>
+                <span>Voto: </span>
+                <span>
+                    <font-awesome-icon v-for="finalVote in getVote(foundTv.vote_average)" icon="fa-solid fa-star" />
+                    <font-awesome-icon
+                        v-for="emptyStars in (this.store.config.maxStarNumber - getVote(foundTv.vote_average))"
+                        icon="fa-regular fa-star" />
+                </span>
+            </li>
         </ul>
     </div>
 </template>
 
-<style lang="scss" scoped>
-span {
+<style lang="scss" scoped>span {
     font-weight: 700;
-}
-</style>
+}</style>
