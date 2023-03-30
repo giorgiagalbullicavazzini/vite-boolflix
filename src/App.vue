@@ -53,6 +53,11 @@ export default {
 
     <div class="container m-5">
         <ul v-for="foundMovie in this.store.foundMovies">
+            <li>
+                <div>
+                    <img :src="`${this.store.config.imgDb}${foundMovie.poster_path}`" alt="foundMovie.original_title">
+                </div>
+            </li>
             <li><span>Titolo:</span> {{ foundMovie.title }}</li>
             <li><span>Titolo Originale:</span> {{ foundMovie.original_title }}</li>
             <li><span>Lingua Originale:</span> <img :src="getFlag(foundMovie)" :alt="foundMovie.original_language"
@@ -63,6 +68,11 @@ export default {
 
     <div class="container m-5">
         <ul v-for="foundTv in this.store.foundSeries">
+            <li>
+                <div>
+                    <img :src="`${this.store.config.imgDb}${foundTv.poster_path}`" alt="foundTv.original_title">
+                </div>
+            </li>
             <li><span>Titolo:</span> {{ foundTv.name }}</li>
             <li><span>Titolo Originale:</span> {{ foundTv.original_name }}</li>
             <li><span>Lingua Originale:</span> <img :src="getFlag(foundTv)" :alt="foundTv.original_language"
