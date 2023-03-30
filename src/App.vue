@@ -17,10 +17,9 @@ export default {
                     query: this.store.searchText
                 }
             })
-            .then((response) => {
-                this.store.foundMovies = response.data.results;
-                console.log(this.store.foundMovies);
-            })
+                .then((response) => {
+                    this.store.foundMovies = response.data.results;
+                })
         }
     }
 }
@@ -38,7 +37,7 @@ export default {
         <ul v-for="foundMovie in this.store.foundMovies">
             <li><span>Titolo:</span> {{ foundMovie.title }}</li>
             <li><span>Titolo Originale:</span> {{ foundMovie.original_title }}</li>
-            <li><span>Lingua Originale:</span> <img :src="`../node_modules/language-icons/icons/${foundMovie.original_language}.svg`" alt=""></li>
+            <li><span>Lingua Originale:</span> <img :src="`../node_modules/language-icons/icons/${foundMovie.original_language}.svg`" :alt="foundMovie.original_language"></li>
             <li><span>Voto:</span> {{ foundMovie.vote_average }}</li>
         </ul>
     </div>
