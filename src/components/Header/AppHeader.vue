@@ -17,9 +17,9 @@ export default {
 
 <template>
     <header>
-        <div class="container">
-            <Logo />
-            <SearchBar />
+        <div class="d-flex align-items-center justify-content-center">
+            <Logo class="me-auto" />
+            <SearchBar class="me-auto" />
         </div>
     </header>
 </template>
@@ -30,5 +30,6 @@ export default {
     header {
         background-color: variables.$header;
         height: variables.$header-height;
+        padding-right: variables.$header-height;
     }
 </style>
