@@ -27,9 +27,9 @@ export default {
 <style lang="scss" scoped>
 @use '../../assets/scss/_partial/variables';
 
-    header {
-        background-color: variables.$header;
-        height: variables.$header-height;
-        padding-right: variables.$header-height;
-    }
+header {
+    background-color: variables.$header;
+    height: variables.$header-height;
+    padding-right: variables.$header-height;
+}
 </style>

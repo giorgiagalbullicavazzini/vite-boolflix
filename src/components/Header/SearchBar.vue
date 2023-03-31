@@ -21,16 +21,16 @@ export default {
         },
         search() {
             this.apiCall(this.store.config.researchOptions.movieApi)
-            .then((response) => {
-                this.store.foundMovies = response.data.results;
-                console.log(this.store.foundMovies);
-            });
+                .then((response) => {
+                    this.store.foundMovies = response.data.results;
+                    console.log(this.store.foundMovies);
+                });
 
             this.apiCall(this.store.config.researchOptions.tvApi)
-            .then((response) => {
-                this.store.foundSeries = response.data.results;
-                console.log(this.store.foundSeries);
-            });
+                .then((response) => {
+                    this.store.foundSeries = response.data.results;
+                    console.log(this.store.foundSeries);
+                });
 
             this.store.searchText = '';
         }

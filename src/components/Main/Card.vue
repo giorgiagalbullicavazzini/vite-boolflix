@@ -1,3 +1,19 @@
-<script></script>
+<script>
+export default {
+    data() {
+        return {
+            name: 'Card'
+        }
+    }
+}
+</script>
 
-<template></template>
+<template>
+    
+</template>
+
+<style lang="scss" scoped>
+@use '../../assets/scss/_partial/variables';
+
+
+</style>

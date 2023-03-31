@@ -3,10 +3,12 @@
 
 // Import all components
 import AppHeader from './components/Header/AppHeader.vue';
+import AppMain from './components/Main/AppMain.vue';
 
 export default {
     components: {
         AppHeader,
+        AppMain
     },
     data() {
         return {
@@ -32,6 +34,7 @@ export default {
 
 <template>
     <AppHeader />
+    <AppMain />
 
     <!-- ////////////////////////////////////////////////////////// -->
 

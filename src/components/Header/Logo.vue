@@ -18,7 +18,8 @@ export default {
 
 <style lang="scss" scoped>
 @use '../../assets/scss/_partial/variables';
-    .logo {
-        width: variables.$header-height;
-    }
+
+.logo {
+    width: variables.$header-height;
+}
 </style>
