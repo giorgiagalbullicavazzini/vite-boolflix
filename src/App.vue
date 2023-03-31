@@ -1,6 +1,5 @@
 <script>
-import axios from 'axios';
-import { store } from './store';
+// import { store } from './store';
 
 // Import all components
 import AppHeader from './components/Header/AppHeader.vue';
@@ -11,45 +10,22 @@ export default {
     },
     data() {
         return {
-            store
+            // store
         }
     },
     methods: {
-        search() {
-            axios.get(this.store.config.movieApi, {
-                params: {
-                    api_key: this.store.config.apiKey,
-                    language: this.store.config.defaultLang,
-                    query: this.store.searchText
-                }
-            })
-                .then((response) => {
-                    this.store.foundMovies = response.data.results;
-                });
-
-            axios.get(this.store.config.tvApi, {
-                params: {
-                    api_key: this.store.config.apiKey,
-                    language: this.store.config.defaultLang,
-                    query: this.store.searchText
-                }
-            })
-                .then((response) => {
-                    this.store.foundSeries = response.data.results;
-                });
-        },
-        getFlag(item) {
-            if (item.original_language === 'xx') {
-                return '../src/assets/images/xx.png';
-            } else {
-                return `../node_modules/language-icons/icons/${item.original_language}.svg`;
-            }
-        },
-        getVote(vote) {
-            const starValue = this.store.config.maxVote / this.store.config.maxStarNumber;
-            const finalVote = Math.ceil(vote / starValue);
-            return (finalVote);
-        }
+        // getFlag(item) {
+        //     if (item.original_language === 'xx') {
+        //         return '../src/assets/images/xx.png';
+        //     } else {
+        //         return `../node_modules/language-icons/icons/${item.original_language}.svg`;
+        //     }
+        // },
+        // getVote(vote) {
+        //     const starValue = this.store.config.maxVote / this.store.config.maxStarNumber;
+        //     const finalVote = Math.ceil(vote / starValue);
+        //     return (finalVote);
+        // }
     }
 }
 </script>
@@ -58,14 +34,8 @@ export default {
     <AppHeader />
 
     <!-- ////////////////////////////////////////////////////////// -->
-    <div class="container m-5">
-        <form @submit.prevent="search">
-            <input v-model="this.store.searchText" type="search" name="search-movie" id="search-movie">
-            <button>Search</button>
-        </form>
-    </div>
 
-    <div class="container m-5">
+    <!-- <div class="container m-5">
         <ul v-for="foundMovie in this.store.foundMovies">
             <li>
                 <div>
@@ -111,10 +81,11 @@ export default {
                 </span>
             </li>
         </ul>
-    </div>
+    </div> -->
 </template>
 
 <style lang="scss" scoped>
-span {
-    font-weight: 700;
-}</style>
+// span {
+//     font-weight: 700;
+// }
+</style>
