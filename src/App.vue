@@ -12,22 +12,8 @@ export default {
     },
     data() {
         return {
-            // store
+            name: 'BoolFlix'
         }
-    },
-    methods: {
-        // getFlag(item) {
-        //     if (item.original_language === 'xx') {
-        //         return '../src/assets/images/xx.png';
-        //     } else {
-        //         return `../node_modules/language-icons/icons/${item.original_language}.svg`;
-        //     }
-        // },
-        // getVote(vote) {
-        //     const starValue = this.store.config.maxVote / this.store.config.maxStarNumber;
-        //     const finalVote = Math.ceil(vote / starValue);
-        //     return (finalVote);
-        // }
     }
 }
 </script>
@@ -38,22 +24,7 @@ export default {
 
     <!-- ////////////////////////////////////////////////////////// -->
 
-    <!-- <div class="container m-5">
-        <ul v-for="foundMovie in this.store.foundMovies">
-            <li><span>Lingua Originale:</span> <img :src="getFlag(foundMovie)" :alt="foundMovie.original_language"
-                    onerror="this.onerror=null;this.src='../src/assets/images/question.png';" /> </li>
-            <li>
-                <span>Voto: </span>
-                <span>
-                    <font-awesome-icon v-for="finalVote in getVote(foundMovie.vote_average)" icon="fa-solid fa-star" />
-                    <font-awesome-icon
-                        v-for="emptyStars in (this.store.config.maxStarNumber - getVote(foundMovie.vote_average))"
-                        icon="fa-regular fa-star" />
-                </span>
-            </li>
-        </ul>
-    </div>
-
+    <!--
     <div class="container m-5">
         <ul v-for="foundTv in this.store.foundSeries">
             <li>
@@ -78,9 +49,3 @@ export default {
         </ul>
     </div> -->
 </template>
-
-<style lang="scss" scoped>
-// span {
-//     font-weight: 700;
-// }
-</style>

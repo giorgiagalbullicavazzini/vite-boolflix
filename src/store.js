@@ -9,9 +9,7 @@ export const store = reactive({
         },
         apiKey: '08607fe5cb737351c4b7b7dfaae78099',
         imgDb: 'https://image.tmdb.org/t/p/w342',
-        defaultLang: 'it-IT',
-        maxVote: 10,
-        maxStarNumber: 5
+        defaultLang: 'it-IT'
     },
     searchText: '',
     foundMovies: [],
