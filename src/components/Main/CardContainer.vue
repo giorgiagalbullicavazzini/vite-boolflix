@@ -24,14 +24,10 @@ export default {
     <div class="container rounded py-3">
         <h2 class="ms-4">Titolo</h2>
         <div class="cards d-flex">
-            <Card class="mx-3" :poster="getImagePath('https://image.tmdb.org/t/p/w342/lVlwOuF9TQeYJ8oY7cpehvEaE4k.jpg')" />
-            <Card class="mx-3" :poster="getImagePath('https://image.tmdb.org/t/p/w342/lVlwOuF9TQeYJ8oY7cpehvEaE4k.jpg')" />
-            <Card class="mx-3" :poster="getImagePath('https://image.tmdb.org/t/p/w342/lVlwOuF9TQeYJ8oY7cpehvEaE4k.jpg')" />
-            <Card class="mx-3" :poster="getImagePath('https://image.tmdb.org/t/p/w342/lVlwOuF9TQeYJ8oY7cpehvEaE4k.jpg')" />
-
-            <!-- <Card v-for="foundMovie in this.store.foundMovies"
+            <Card class="mx-3" v-for="foundMovie in this.store.foundMovies"
                 :poster="getImagePath(`${this.store.config.imgDb}${foundMovie.poster_path}`)"
-                :title="foundMovie.title" /> -->
+                :title="foundMovie.title"
+                :original-title="foundMovie.original_title" />
         </div>
     </div>
 </template>
