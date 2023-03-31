@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-    <div class="card">
+    <div class="result-card">
         <div class="poster">
             <img :src="poster" :alt="title"
             onerror="this.onerror=null;this.src='../src/assets/images/question.png';" />
@@ -36,13 +36,11 @@ export default {
 
 <style lang="scss" scoped>
 @use '../../assets/scss/_partial/variables';
-
-.card {
-    background-color: lightblue;
-    width: 342px;
+    .poster {
+        width: variables.$poster-width;
+    }
 
     .other-info {
         background-color: pink;
     }
-}
 </style>

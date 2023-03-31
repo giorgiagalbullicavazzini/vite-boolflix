@@ -21,12 +21,17 @@ export default {
 </script>
 
 <template>
-    <div class="container rounded py-3 px-4">
-        <h2>Titolo</h2>
-        <div class="cards d-flex justify-content-between overflow-x-auto">
-            <Card v-for="foundMovie in this.store.foundMovies"
+    <div class="container rounded py-3">
+        <h2 class="ms-4">Titolo</h2>
+        <div class="cards d-flex">
+            <Card class="mx-3" :poster="getImagePath('https://image.tmdb.org/t/p/w342/lVlwOuF9TQeYJ8oY7cpehvEaE4k.jpg')" />
+            <Card class="mx-3" :poster="getImagePath('https://image.tmdb.org/t/p/w342/lVlwOuF9TQeYJ8oY7cpehvEaE4k.jpg')" />
+            <Card class="mx-3" :poster="getImagePath('https://image.tmdb.org/t/p/w342/lVlwOuF9TQeYJ8oY7cpehvEaE4k.jpg')" />
+            <Card class="mx-3" :poster="getImagePath('https://image.tmdb.org/t/p/w342/lVlwOuF9TQeYJ8oY7cpehvEaE4k.jpg')" />
+
+            <!-- <Card v-for="foundMovie in this.store.foundMovies"
                 :poster="getImagePath(`${this.store.config.imgDb}${foundMovie.poster_path}`)"
-                :title="foundMovie.title" />
+                :title="foundMovie.title" /> -->
         </div>
     </div>
 </template>
@@ -39,6 +44,11 @@ export default {
 
     h2 {
         color: variables.$title;
+    }
+
+    .cards {
+        overflow-x: auto;
+        overflow-y: hidden;
     }
 }
 </style>
