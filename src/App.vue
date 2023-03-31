@@ -40,12 +40,6 @@ export default {
 
     <!-- <div class="container m-5">
         <ul v-for="foundMovie in this.store.foundMovies">
-            <li>
-                <div>
-                    <img :src="`${this.store.config.imgDb}${foundMovie.poster_path}`" :alt="foundMovie.original_title"
-                        onerror="this.onerror=null;this.src='../src/assets/images/question.png';" />
-                </div>
-            </li>
             <li><span>Titolo:</span> {{ foundMovie.title }}</li>
             <li><span>Titolo Originale:</span> {{ foundMovie.original_title }}</li>
             <li><span>Lingua Originale:</span> <img :src="getFlag(foundMovie)" :alt="foundMovie.original_language"

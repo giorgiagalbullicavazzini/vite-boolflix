@@ -1,5 +1,6 @@
 <script>
 import Card from './Card.vue';
+import { store } from '../../store';
 
 export default {
     components: {
@@ -7,7 +8,13 @@ export default {
     },
     data() {
         return {
-            name: 'CardContainer'
+            name: 'CardContainer',
+            store
+        }
+    },
+    methods: {
+        getImagePath: function(imgPath) {
+            return new URL(imgPath, import.meta.url).href;
         }
     }
 }
@@ -16,7 +23,11 @@ export default {
 <template>
     <div class="container rounded py-3 px-4">
         <h2>Titolo</h2>
-        <Card />
+        <div class="cards d-flex justify-content-between overflow-x-auto">
+            <Card v-for="foundMovie in this.store.foundMovies"
+                :poster="getImagePath(`${this.store.config.imgDb}${foundMovie.poster_path}`)"
+                :title="foundMovie.title" />
+        </div>
     </div>
 </template>
 

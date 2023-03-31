@@ -4,21 +4,33 @@ export default {
         return {
             name: 'Card'
         }
+    },
+    props: {
+        poster: String,
+        title: String,
+        vote: String,
+        originalTitle: String,
+        language: String,
+        description: String
     }
 }
 </script>
 
 <template>
     <div class="card">
-        <div class="info p-2">
-            <div class="star-votes text-end">Stelline</div>
-            <div class="other-info">
-                <div class="title">Titolo</div>
-                <div class="original-title">Titolo Originale</div>
-                <div class="language">Lingua</div>
-                <div class="description">Descrizione</div>
-            </div>
+        <div class="poster">
+            <img :src="poster" :alt="title"
+            onerror="this.onerror=null;this.src='../src/assets/images/question.png';" />
         </div>
+        <!-- <div class="info p-2">
+            <div class="star-votes text-end">{{ vote }}</div>
+            <div class="other-info">
+                <div class="title">{{ title }}</div>
+                <div class="original-title">{{ originalTitle }}</div>
+                <div class="language">{{ language }}</div>
+                <div class="description">{{ description }}</div>
+            </div>
+        </div> -->
     </div>
 </template>
 
