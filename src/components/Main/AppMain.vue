@@ -1,10 +1,8 @@
 <script>
-import Card from './Card.vue';
 import CardContainer from './CardContainer.vue';
 
 export default {
     components: {
-        Card,
         CardContainer
     },
     data() {

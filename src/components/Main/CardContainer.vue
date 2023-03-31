@@ -1,5 +1,10 @@
 <script>
+import Card from './Card.vue';
+
 export default {
+    components: {
+        Card
+    },
     data() {
         return {
             name: 'CardContainer'
@@ -11,6 +16,7 @@ export default {
 <template>
     <div class="container rounded py-3 px-4">
         <h2>Titolo</h2>
+        <Card />
     </div>
 </template>
 
@@ -19,7 +25,6 @@ export default {
 
 .container {
     background-color: variables.$card-container;
-    height: 45%;
 
     h2 {
         color: variables.$title;
