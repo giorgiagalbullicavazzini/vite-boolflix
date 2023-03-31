@@ -1,5 +1,17 @@
 // Import all partial CSS
 @use '_partial/reset' as *;
+@use '_partial/variables' as *;
 
 // Import all of Bootstrap's CSS
 @import "bootstrap/scss/bootstrap";
+
+// Containers
+body {
+    height: 100vh;
+}
+
+// Common
+img {
+    display: block;
+    width: 100%;
+}

@@ -2,7 +2,13 @@
 import axios from 'axios';
 import { store } from './store';
 
+// Import all components
+import AppHeader from './components/Header/AppHeader.vue';
+
 export default {
+    components: {
+        AppHeader,
+    },
     data() {
         return {
             store
@@ -49,6 +55,9 @@ export default {
 </script>
 
 <template>
+    <AppHeader />
+
+    <!-- ////////////////////////////////////////////////////////// -->
     <div class="container m-5">
         <form @submit.prevent="search">
             <input v-model="this.store.searchText" type="search" name="search-movie" id="search-movie">

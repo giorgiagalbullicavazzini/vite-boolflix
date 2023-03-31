@@ -1,3 +1,13 @@
-<script></script>
+<script>
+export default {
+    data() {
+        return {
+            name: 'SearchBar'
+        }
+    }
+}
+</script>
 
-<template></template>
+<template>
+    
+</template>
