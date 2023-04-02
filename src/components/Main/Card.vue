@@ -118,6 +118,13 @@ export default {
         .language {
             width: 1.25rem;
         }
+
+        .description {
+            display: -webkit-box;
+            -webkit-line-clamp: 8;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
     }
 }
 </style>
