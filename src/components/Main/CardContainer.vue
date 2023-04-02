@@ -31,7 +31,8 @@ export default {
 
 <template>
     <div class="resultsContainer rounded m-auto py-3">
-        <h2 class="ms-4 fw-semibold">Titolo</h2>
+        <h2 class="ms-4 fw-semibold" v-if="getResults.length === 0">Cerca un film o una serie tv per accedere al nostro catalogo</h2>
+        <h2 class="ms-4 fw-semibold" v-else>Ecco i risultati della tua ricerca:</h2>
 
         <!-- Card Container -->
         <div class="cards d-flex" @wheel.preventDefault="horizontalScroll($event)">

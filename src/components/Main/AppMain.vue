@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-    <main class="d-flex flex-column justify-content-evenly py-5">
+    <main class="py-5">
         <CardContainer />
     </main>
 </template>
