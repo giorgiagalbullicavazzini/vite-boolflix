@@ -54,8 +54,7 @@ export default {
     }
 
     .cards {
-        overflow-x: auto;
-        overflow-y: hidden;
+        overflow: hidden;
     }
 }
 </style>
