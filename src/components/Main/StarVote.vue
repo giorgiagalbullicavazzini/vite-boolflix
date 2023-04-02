@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-    <div class="star-votes text-end">
+    <div class="star-votes">
         <font-awesome-icon v-for="vote in maxStarNumber" :icon="(vote <= finalVote) ? 'fa-solid fa-star' : 'fa-regular fa-star'" />
     </div>
 </template>

@@ -26,7 +26,7 @@ export default {
 
 <template>
     <div class="container rounded py-3">
-        <h2 class="ms-4">Titolo</h2>
+        <h2 class="ms-4 fw-semibold">Titolo</h2>
 
         <!-- Card Container -->
         <div class="cards d-flex">

@@ -54,23 +54,27 @@ export default {
         <!-- Info -->
         <div class="info p-2 position-absolute">
             <!-- Star Votes -->
-            <StarVote :finalVote="getVote" :maxStarNumber="this.config.maxStarNumber" />
+            <StarVote :finalVote="getVote" :maxStarNumber="this.config.maxStarNumber" class="text-end" />
             <!-- // Star Votes -->
 
             <div class="other-info">
-                <!-- Titles -->
-                <div class="title">{{ result.title || result.name }}</div>
-                <div class="original-title">{{ result.original_title || result.original_name }}</div>
-                <!-- // Titles -->
+                <!-- Title -->
+                <h3 class="title fw-semibold">{{ result.title || result.name }}</h3>
+                <!-- // Title -->
 
-                <!-- Language -->
-                <div class="original-language">
-                    <img :src="getFlag" :alt="result.original_language"
-                        onerror="this.onerror=null;this.src='../src/assets/images/question.png'" />
+                <!-- Original Language -->
+                <div class="label fw-bold">Titolo originale:</div>
+                <div class="original-language d-flex align-items-center justify-content-between">
+                    <div class="original-title">{{ result.original_title || result.original_name }}</div>
+                    <div class="language">
+                        <img :src="getFlag" :alt="result.original_language"
+                            onerror="this.onerror=null;this.src='../src/assets/images/question.png'" />
+                    </div>
                 </div>
-                <!-- // Language -->
+                <!-- // Original Language -->
 
                 <!-- Description -->
+                <div class="label fw-bold">Sinossi:</div>
                 <div class="description">{{ result.overview }}</div>
                 <!-- // Description -->
             </div>
@@ -96,6 +100,10 @@ export default {
 
     &:hover {
         opacity: 1;
+    }
+
+    .language {
+        width: 1.25rem;
     }
 }
 </style>
