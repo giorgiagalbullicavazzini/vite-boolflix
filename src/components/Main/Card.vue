@@ -54,10 +54,11 @@ export default {
         <!-- Info -->
         <div class="info position-absolute start-0 bottom-0">
             <!-- Star Votes -->
-            <StarVote :finalVote="getVote" :maxStarNumber="this.config.maxStarNumber" class="mx-1 p-2 position-absolute top-0 end-0 rounded" />
+            <StarVote :finalVote="getVote" :maxStarNumber="this.config.maxStarNumber"
+                class="mx-1 p-2 position-absolute top-0 end-0 rounded-bottom" />
             <!-- // Star Votes -->
 
-            <div class="other-info mx-1 p-2 position-absolute start-0 bottom-0 rounded">
+            <div class="other-info mx-1 p-2 position-absolute start-0 bottom-0 rounded-top">
                 <!-- Title -->
                 <h3 class="title fw-semibold">{{ result.title || result.name }}</h3>
                 <!-- // Title -->
@@ -92,22 +93,26 @@ export default {
 
 .info {
     color: variables.$text;
-    height: 32.0625rem;
+    height: variables.$poster-height;
     opacity: 0;
+    transition: opacity 2s;
     width: variables.$poster-width;
 
     &:hover {
         opacity: 1;
-        transition: opacity 1.5s;
+    }
+
+    &:not(:hover) {
+        opacity: 0;
     }
 
     .other-info {
         background-color: variables.$overlay;
+        height: 80%;
 
         .language {
             width: 1.25rem;
         }
     }
-
-
-}</style>
+}
+</style>
