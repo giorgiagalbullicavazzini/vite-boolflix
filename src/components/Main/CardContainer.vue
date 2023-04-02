@@ -27,7 +27,8 @@ export default {
                 :title="foundMovie.title"
                 :original-title="foundMovie.original_title"
                 :original-language="foundMovie.original_language"
-                :vote="foundMovie.vote_average" />
+                :vote="foundMovie.vote_average"
+                :description="foundMovie.overview" />
         </div>
         <!-- // Card Container -->
     </div>
