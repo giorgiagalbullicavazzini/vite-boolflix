@@ -4,12 +4,12 @@ import Card from './Card.vue';
 import { store } from '../../store';
 
 export default {
+    name: 'CardContainer',
     components: {
         Card
     },
     data() {
         return {
-            name: 'CardContainer',
             store
         }
     }

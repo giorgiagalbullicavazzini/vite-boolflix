@@ -4,14 +4,10 @@ import Logo from './Logo.vue';
 import SearchBar from './SearchBar.vue';
 
 export default {
+    name: 'AppHeader',
     components: {
         Logo,
         SearchBar
-    },
-    data() {
-        return {
-            name: 'AppHeader'
-        }
     }
 }
 </script>

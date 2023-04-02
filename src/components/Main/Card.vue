@@ -3,12 +3,12 @@
 import StarVote from './StarVote.vue';
 
 export default {
+    name: 'Card',
     components: {
         StarVote
     },
     data() {
         return {
-            name: 'Card',
             config: {
                 maxVote: 10,
                 maxStarNumber: 5

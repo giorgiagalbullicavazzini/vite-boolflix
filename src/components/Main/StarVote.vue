@@ -1,10 +1,6 @@
 <script>
 export default {
-    data() {
-        return {
-            name: 'StarVote'
-        }
-    },
+    name: 'StarVote',
     props: {
         finalVote: Number,
         maxStarNumber: Number

@@ -6,14 +6,10 @@ import AppHeader from './components/Header/AppHeader.vue';
 import AppMain from './components/Main/AppMain.vue';
 
 export default {
+    name: 'BoolFlix',
     components: {
         AppHeader,
         AppMain
-    },
-    data() {
-        return {
-            name: 'BoolFlix'
-        }
     }
 }
 </script>

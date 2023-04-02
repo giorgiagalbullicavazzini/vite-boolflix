@@ -3,13 +3,9 @@
 import CardContainer from './CardContainer.vue';
 
 export default {
+    name: 'AppMain',
     components: {
         CardContainer
-    },
-    data() {
-        return {
-            name: 'AppMain'
-        }
     }
 }
 </script>

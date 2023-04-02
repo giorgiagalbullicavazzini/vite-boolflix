@@ -1,10 +1,6 @@
 <script>
 export default {
-    data() {
-        return {
-            name: 'Logo'
-        }
-    }
+    name: 'Logo'
 }
 </script>
 
