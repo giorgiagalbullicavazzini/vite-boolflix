@@ -30,7 +30,7 @@ export default {
 </script>
 
 <template>
-    <div class="container rounded py-3">
+    <div class="resultsContainer rounded m-auto py-3">
         <h2 class="ms-4 fw-semibold">Titolo</h2>
 
         <!-- Card Container -->
@@ -46,8 +46,9 @@ export default {
 <style lang="scss" scoped>
 @use '../../assets/scss/_partial/variables';
 
-.container {
+.resultsContainer {
     background-color: variables.$card-container;
+    width: 90%;
 
     h2 {
         color: variables.$text;
