@@ -1,4 +1,5 @@
 <script>
+// Import all components
 import CardContainer from './CardContainer.vue';
 
 export default {

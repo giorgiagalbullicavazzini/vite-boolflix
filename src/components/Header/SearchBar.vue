@@ -10,6 +10,7 @@ export default {
         }
     },
     methods: {
+        // Call a generic API
         apiCall(api) {
             return axios.get(this.store.config.apiDb + api, {
                 params: {
@@ -19,6 +20,7 @@ export default {
                 }
             })
         },
+        // Get the different arrays searching for a movie or a tv show
         search() {
             this.apiCall(this.store.config.researchOptions.movieApi)
                 .then((response) => {
@@ -32,6 +34,7 @@ export default {
                     console.log(this.store.foundSeries);
                 });
 
+            // Resetting the searchbar input text
             this.store.searchText = '';
         }
     }

@@ -1,4 +1,5 @@
 <script>
+// Import all components
 import Logo from './Logo.vue';
 import SearchBar from './SearchBar.vue';
 

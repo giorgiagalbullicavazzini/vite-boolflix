@@ -1,4 +1,5 @@
 <script>
+// Import all components
 import Card from './Card.vue';
 import { store } from '../../store';
 
@@ -18,6 +19,8 @@ export default {
 <template>
     <div class="container rounded py-3">
         <h2 class="ms-4">Titolo</h2>
+
+        <!-- Card Container -->
         <div class="cards d-flex">
             <Card class="mx-3" v-for="foundMovie in this.store.foundMovies"
                 :poster="`${this.store.config.imgDb}${foundMovie.poster_path}`"
@@ -26,6 +29,7 @@ export default {
                 :original-language="foundMovie.original_language"
                 :vote="foundMovie.vote_average" />
         </div>
+        <!-- // Card Container -->
     </div>
 </template>
 

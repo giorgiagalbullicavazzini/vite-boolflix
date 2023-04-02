@@ -18,9 +18,11 @@ export default {
         description: String
     },
     computed: {
+        // Get a dynamic image path
         getImagePath() {
             return new URL(this.poster, import.meta.url).href;
         },
+        // Original language becomes a flag
         getFlag() {
             if (this.originalLanguage === 'xx') {
                 return '../src/assets/images/xx.png';
@@ -28,6 +30,7 @@ export default {
                 return `../node_modules/language-icons/icons/${this.originalLanguage}.svg`;
             }
         },
+        // Average vote becomes a star value
         getVote() {
             const starValue = this.config.maxVote / this.config.maxStarNumber;
             const finalVote = Math.ceil(this.vote / starValue);
@@ -39,26 +42,42 @@ export default {
 
 <template>
     <div class="result-card position-relative">
+        <!-- Poster -->
         <div class="poster">
             <img :src="getImagePath" :alt="title" onerror="this.onerror=null;this.src='../src/assets/images/question.png'" />
         </div>
+        <!-- // Poster -->
+
+        <!-- Info -->
         <div class="info p-2 position-absolute">
+            <!-- Star Votes -->
             <div class="star-votes text-end">
                 <font-awesome-icon icon="fa-solid fa-star"
                     v-for="finalVote in getVote" />
                 <font-awesome-icon icon="fa-regular fa-star"
                     v-for="emptyStars in (this.config.maxStarNumber - getVote)" />
             </div>
+            <!-- // Star Votes -->
+
             <div class="other-info">
+                <!-- Titles -->
                 <div class="title">{{ title }}</div>
                 <div class="original-title">{{ originalTitle }}</div>
+                <!-- // Titles -->
+
+                <!-- Language -->
                 <div class="original-language">
                     <img :src="getFlag" :alt="originalLanguage"
                         onerror="this.onerror=null;this.src='../src/assets/images/question.png'" />
                 </div>
+                <!-- // Language -->
+
+                <!-- Description -->
                 <div class="description">{{ description }}</div>
+                <!-- // Description -->
             </div>
         </div>
+        <!-- // Info -->
     </div>
 </template>
 
