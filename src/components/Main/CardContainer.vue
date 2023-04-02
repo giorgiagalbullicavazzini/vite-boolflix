@@ -20,6 +20,11 @@ export default {
             // Results get sorted by popularity
             return searchResults.sort((a, b) => b.popularity - a.popularity);
         }
+    },
+    methods: {
+        horizontalScroll(event) {
+            event.currentTarget.scrollLeft += event.deltaY;
+        }
     }
 }
 </script>
@@ -29,7 +34,7 @@ export default {
         <h2 class="ms-4 fw-semibold">Titolo</h2>
 
         <!-- Card Container -->
-        <div class="cards d-flex">
+        <div class="cards d-flex" @wheel.preventDefault="horizontalScroll($event)">
             <Card class="mx-3" v-for="foundResult in getResults"
                 :poster="this.store.config.imgDb"
                 :result="foundResult" />
