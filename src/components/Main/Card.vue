@@ -1,5 +1,11 @@
 <script>
+// Import all components
+import StarVote from './StarVote.vue';
+
 export default {
+    components: {
+        StarVote
+    },
     data() {
         return {
             name: 'Card',
@@ -44,19 +50,15 @@ export default {
     <div class="result-card position-relative">
         <!-- Poster -->
         <div class="poster">
-            <img :src="getImagePath" :alt="title" onerror="this.onerror=null;this.src='../src/assets/images/question.png'" />
+            <img :src="getImagePath" :alt="title"
+                onerror="this.onerror=null;this.src='../src/assets/images/question.png'" />
         </div>
         <!-- // Poster -->
 
         <!-- Info -->
         <div class="info p-2 position-absolute">
             <!-- Star Votes -->
-            <div class="star-votes text-end">
-                <font-awesome-icon icon="fa-solid fa-star"
-                    v-for="finalVote in getVote" />
-                <font-awesome-icon icon="fa-regular fa-star"
-                    v-for="emptyStars in (this.config.maxStarNumber - getVote)" />
-            </div>
+            <StarVote :finalVote="getVote" :maxStarNumber="this.config.maxStarNumber" />
             <!-- // Star Votes -->
 
             <div class="other-info">
