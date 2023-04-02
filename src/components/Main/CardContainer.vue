@@ -12,6 +12,13 @@ export default {
         return {
             store
         }
+    },
+    computed: {
+        // Generate a single array with the search results
+        getResults() {
+            const searchResults = [...store.foundMovies, ...store.foundSeries];
+            return searchResults;
+        }
     }
 }
 </script>
@@ -22,13 +29,13 @@ export default {
 
         <!-- Card Container -->
         <div class="cards d-flex">
-            <Card class="mx-3" v-for="foundMovie in this.store.foundMovies"
-                :poster="`${this.store.config.imgDb}${foundMovie.poster_path}`"
-                :title="foundMovie.title"
-                :original-title="foundMovie.original_title"
-                :original-language="foundMovie.original_language"
-                :vote="foundMovie.vote_average"
-                :description="foundMovie.overview" />
+            <Card class="mx-3" v-for="foundResult in getResults"
+                :poster="`${this.store.config.imgDb}${foundResult.poster_path}`"
+                :title="foundResult.title || foundResult.name"
+                :original-title="foundResult.original_title || foundResult.original_name"
+                :original-language="foundResult.original_language"
+                :vote="foundResult.vote_average"
+                :description="foundResult.overview" />
         </div>
         <!-- // Card Container -->
     </div>

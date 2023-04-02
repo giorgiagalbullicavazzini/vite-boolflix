@@ -17,31 +17,4 @@ export default {
 <template>
     <AppHeader />
     <AppMain />
-
-    <!-- ////////////////////////////////////////////////////////// -->
-
-    <!--
-    <div class="container m-5">
-        <ul v-for="foundTv in this.store.foundSeries">
-            <li>
-                <div>
-                    <img :src="`${this.store.config.imgDb}${foundTv.poster_path}`" :alt="foundTv.original_title"
-                        onerror="this.onerror=null;this.src='../src/assets/images/question.png';" />
-                </div>
-            </li>
-            <li><span>Titolo:</span> {{ foundTv.name }}</li>
-            <li><span>Titolo Originale:</span> {{ foundTv.original_name }}</li>
-            <li><span>Lingua Originale:</span> <img :src="getFlag(foundTv)" :alt="foundTv.original_language"
-                    onerror="this.onerror=null;this.src='../src/assets/images/question.png';" /> </li>
-            <li>
-                <span>Voto: </span>
-                <span>
-                    <font-awesome-icon v-for="finalVote in getVote(foundTv.vote_average)" icon="fa-solid fa-star" />
-                    <font-awesome-icon
-                        v-for="emptyStars in (this.store.config.maxStarNumber - getVote(foundTv.vote_average))"
-                        icon="fa-regular fa-star" />
-                </span>
-            </li>
-        </ul>
-    </div> -->
 </template>
