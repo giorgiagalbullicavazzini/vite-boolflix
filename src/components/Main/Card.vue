@@ -89,6 +89,11 @@ export default {
 
 .poster {
     width: variables.$poster-width;
+
+    img {
+        height: variables.$poster-height;
+        object-fit: cover;
+    }
 }
 
 .info {
