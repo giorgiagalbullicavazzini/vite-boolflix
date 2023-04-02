@@ -17,7 +17,8 @@ export default {
         // Generate a single array with the search results
         getResults() {
             const searchResults = [...store.foundMovies, ...store.foundSeries];
-            return searchResults;
+            // Results get sorted by popularity
+            return searchResults.sort((a, b) => b.popularity - a.popularity);
         }
     }
 }
