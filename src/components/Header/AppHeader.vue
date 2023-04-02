@@ -14,7 +14,7 @@ export default {
 
 <template>
     <header>
-        <div class="d-flex align-items-center justify-content-center">
+        <div class="d-flex ps-3 align-items-center justify-content-center">
             <Logo class="me-auto" />
             <SearchBar class="me-auto" />
         </div>
