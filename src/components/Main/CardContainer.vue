@@ -30,12 +30,8 @@ export default {
         <!-- Card Container -->
         <div class="cards d-flex">
             <Card class="mx-3" v-for="foundResult in getResults"
-                :poster="`${this.store.config.imgDb}${foundResult.poster_path}`"
-                :title="foundResult.title || foundResult.name"
-                :original-title="foundResult.original_title || foundResult.original_name"
-                :original-language="foundResult.original_language"
-                :vote="foundResult.vote_average"
-                :description="foundResult.overview" />
+                :poster="this.store.config.imgDb"
+                :result="foundResult" />
         </div>
         <!-- // Card Container -->
     </div>

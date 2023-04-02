@@ -17,30 +17,26 @@ export default {
     },
     props: {
         poster: String,
-        title: String,
-        vote: Number,
-        originalTitle: String,
-        originalLanguage: String,
-        description: String
+        result: Object
     },
     computed: {
         // Get a dynamic image path
         getImagePath() {
-            return new URL(this.poster, import.meta.url).href;
+            return new URL(this.poster + this.result.poster_path, import.meta.url).href;
         },
         // Original language becomes a flag
         getFlag() {
-            if (this.originalLanguage === 'xx') {
+            if (this.result.original_language === 'xx') {
                 return '../src/assets/images/xx.png';
             } else {
-                return `../node_modules/language-icons/icons/${this.originalLanguage}.svg`;
+                return `../node_modules/language-icons/icons/${this.result.original_language}.svg`;
             }
         },
         // Average vote becomes a star value
         getVote() {
             const starValue = this.config.maxVote / this.config.maxStarNumber;
-            const finalVote = Math.ceil(this.vote / starValue);
-            return (finalVote);
+            const finalVote = Math.ceil(this.result.vote_average / starValue);
+            return finalVote;
         }
     }
 }
@@ -50,7 +46,7 @@ export default {
     <div class="result-card position-relative">
         <!-- Poster -->
         <div class="poster">
-            <img :src="getImagePath" :alt="title"
+            <img :src="getImagePath" :alt="result.title || result.name"
                 onerror="this.onerror=null;this.src='../src/assets/images/question.png'" />
         </div>
         <!-- // Poster -->
@@ -63,19 +59,19 @@ export default {
 
             <div class="other-info">
                 <!-- Titles -->
-                <div class="title">{{ title }}</div>
-                <div class="original-title">{{ originalTitle }}</div>
+                <div class="title">{{ result.title || result.name }}</div>
+                <div class="original-title">{{ result.original_title || result.original_name }}</div>
                 <!-- // Titles -->
 
                 <!-- Language -->
                 <div class="original-language">
-                    <img :src="getFlag" :alt="originalLanguage"
+                    <img :src="getFlag" :alt="result.original_language"
                         onerror="this.onerror=null;this.src='../src/assets/images/question.png'" />
                 </div>
                 <!-- // Language -->
 
                 <!-- Description -->
-                <div class="description">{{ description }}</div>
+                <div class="description">{{ result.overview }}</div>
                 <!-- // Description -->
             </div>
         </div>
