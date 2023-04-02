@@ -9,8 +9,8 @@ export default {
 </script>
 
 <template>
-    <div class="star-votes p-2">
-        <font-awesome-icon v-for="vote in maxStarNumber" :icon="(vote <= finalVote) ? 'fa-solid fa-star' : 'fa-regular fa-star'" />
+    <div class="star-votes">
+        <font-awesome-icon role="button" v-for="vote in maxStarNumber" :icon="(vote <= finalVote) ? 'fa-solid fa-star' : 'fa-regular fa-star'" />
     </div>
 </template>
 
@@ -18,6 +18,7 @@ export default {
 @use '../../assets/scss/_partial/variables';
 
 .star-votes {
+    background-color: variables.$overlay;
     color: variables.$stars;
 }
 </style>

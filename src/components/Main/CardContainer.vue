@@ -45,7 +45,7 @@ export default {
     background-color: variables.$card-container;
 
     h2 {
-        color: variables.$title;
+        color: variables.$text;
     }
 
     .cards {
